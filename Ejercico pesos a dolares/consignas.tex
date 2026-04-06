@@ -1,0 +1,36 @@
+Ejercicio: Conversor de Pesos a Dolares en tiempo real.
+Objetivos: Desarrollar una aplicacion web utilizando HTML, CSS, JavaScript (vanilla) que consuma una API publica cotizaciones del dolar en Argentina y permita convertir un monto en pesos a dolares segun distintos tipos de cambio.
+
+Requisitos Funcionales:
+1- Ingreso de datos:
+   # El usuario debe ingresar un monto en pesos argentinos (ARS).
+   # Debe haber un boton para realizar el calculo.
+2- Consulta a API:
+    # La aplicacion debe consumir una API publica que devuelva las cotizaciones de: (Dolar Oficial, Dolar Blue, Dolar MEP)
+    # Para cada tipo obtener: (Valor de compra, Valor de venta).
+3- Calculo:
+    # A partir del monto ingresado:
+        # Calcular cuanots dolares se obtienen usando el valor de compra.
+        # Calcular cuanots dolares se obtienen usando el valor de venta.
+
+Formula:
+Dolares = pesos / cotizacion
+
+4- Visualizacion:
+    # Mostrar los resultados de forma clara.
+
+Requisitos de Interfaz:
+1- Diseño prolijo y centradoen pantalla.
+2- Uso de CSS (sin framewoks)
+3- Diferenciar visualmente cada tipo de dolar (color cards, etc).
+4- Mostrar mensaje de error si:
+    # El input esta vacio.
+    # El valor no es numerico.
+    # La API falla.
+
+Requesitos tecnicos:
+1- Usar fetch() para consumir la API.
+2- No usar libvrerias externas (ni axios, ni framewoks).
+3- Separar responsabilidades: index.HTML --> estructura, styles.CSS --> estilo, app.JS --> logica+consumo API.
+
+Api sugerida: Pueden usar por ejemplo:  https://dolarapi.com/
