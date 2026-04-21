@@ -18,13 +18,15 @@ CREATE TABLE Materia (
     curso VARCHAR(10),
     ID_carrera INT,
     FOREIGN KEY (ID_profesor) REFERENCES Profesor(ID_profesor),
-    FOREIGN KEY (ID_carrera) REFERENCES Carrera(ID_carrera)
+    FOREIGN KEY (ID_carrera) REFERENCES Carrera(ID_carrera),
+    Nota_aprobacion VARCHAR(50)
 );
 
 CREATE TABLE Alumnos (
     ID_alumno INT PRIMARY KEY,
     nombre VARCHAR(100),
     edad INT,
+    Fecha_Nacimiento VARCHAR(50),
     DNI VARCHAR(20) UNIQUE,
     email VARCHAR(100),
     ID_carrera INT,
