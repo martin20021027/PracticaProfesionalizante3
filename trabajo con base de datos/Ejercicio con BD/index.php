@@ -10,14 +10,27 @@ $host = "localhost";
 $user = "root";
 $pass = "";          
 $dbname = "instituto";
-
 $conn = new mysqli($host, $user, $pass, $dbname);
 
 // Elegir tabla por URL
 $tabla = isset($_GET['tabla']) ? $_GET['tabla'] : 'usuario';
 
-// CONSULTA DINÁMICA
-$sql = "SELECT * FROM $tabla";
+// Da la trayectoria del alumno.
+if ($tabla == "trayectoria" && isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+
+    $sql = "SELECT alumno.nombre AS alumno, carrera.nombre AS carrera, materia.nombre AS materia
+            FROM alumno
+            INNER JOIN carrera ON alumno.ID_carrera = carrera.ID_carrera
+            INNER JOIN materia ON materia.ID_carrera = carrera.ID_carrera
+            WHERE alumno.ID_alumno = $id";
+
+} else {
+    // Consulta normal
+    $sql = "SELECT * FROM $tabla";
+}
+
 $result = $conn->query($sql);
 ?>
 
@@ -35,10 +48,16 @@ $result = $conn->query($sql);
 <a href="logout.php">Cerrar sesión</a>
 
 <hr>
-<h2>Tabla: <?php echo $tabla; ?></h2>
 
 <?php
+if ($tabla == "trayectoria") {
+    echo "<h2>Trayectoria del Alumno</h2>";
+} else {
+    echo "<h2>Tabla: $tabla</h2>";
+}
+
 if ($result->num_rows > 0) {
+
     echo "<table border='1'>";
 
     // Encabezados
@@ -46,20 +65,37 @@ if ($result->num_rows > 0) {
         echo "<th>{$field->name}</th>";
     }
 
+    // 👉 columna extra SOLO en alumnos
+    if ($tabla == "alumno") {
+        echo "<th>Acción</th>";
+    }
+
     // Datos
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
+
         foreach ($row as $dato) {
             echo "<td>$dato</td>";
         }
+
+        // 👉 BOTÓN trayectoria
+        if ($tabla == "alumno") {
+            echo "<td><a href='?tabla=trayectoria&id={$row['ID_alumno']}'>Ver Trayectoria</a></td>";
+        }
+
         echo "</tr>";
     }
 
     echo "</table>";
+
 } else {
-    echo "No hay datos";
+    echo "No hay datos disponibles";
 }
 ?>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
 </body>
 </html>
