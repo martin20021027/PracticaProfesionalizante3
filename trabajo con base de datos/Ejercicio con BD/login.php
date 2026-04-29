@@ -20,19 +20,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php");
         exit();
     } else {
-        echo "Usuario o contraseña incorrectos";
+        echo "Usuario o contraseña incorrectos intente de nuevo";
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+    
 <body>
-    <h2>Inicio</h2>
+    <h2>Iniciar seccion </h2>
     <form method="POST">
         Nombre: <input type="text" name="nombre"><br>
         Contraseña: <input type="password" name="password"><br>
         <button type="submit">Ingresar</button>
     </form>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 </body>
 </html>
