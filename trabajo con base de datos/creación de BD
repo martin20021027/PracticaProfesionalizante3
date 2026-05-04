@@ -19,6 +19,7 @@ CREATE TABLE Alumnos (
     ID_alumno INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     edad INT,
+    Fecha_nacimiento VARCHAR(50),
     DNI VARCHAR(20) UNIQUE,
     email VARCHAR(100) UNIQUE,
     ID_carrera INT,
@@ -34,6 +35,14 @@ CREATE TABLE Materia (
     ID_carrera INT,
     FOREIGN KEY (ID_profesor) REFERENCES Profesor(ID_profesor),
     FOREIGN KEY (ID_carrera) REFERENCES Carrera(ID_carrera)
+);
+
+-- Tabla Usuario
+CREATE TABLE Profesor (
+    ID_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    contraseña VARCHAR(50) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
 );
 
 
