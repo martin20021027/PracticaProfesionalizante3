@@ -145,4 +145,5 @@ INSERT INTO Alumnos (ID_alumno, nombre, edad, Fecha_Nacimiento, DNI, email, ID_c
 (47, 'Hernán Salas', 23, '2003-07-07', '34777888', 'hernan47@mail.com', 3),
 (48, 'Inés Cabrera', 21, '2005-09-25', '34888999', 'ines48@mail.com', 4),
 (49, 'Julián Páez', 22, '2004-11-12', '34999000', 'julian49@mail.com', 1),
-(50, 'Karina Villalba', 23, '2003-04-17', '35000111', 'karina50@mail.com', 2);
+(50, 'Karina Villalba', 23, '2003-04-17', '35000111', 'karina50@mail.com', 2),
+(51, 'Martin Argalas', 23, '2002-10-27',  '49452349', 'martin@gmail.com', 1);
