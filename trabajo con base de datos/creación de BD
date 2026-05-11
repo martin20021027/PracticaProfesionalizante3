@@ -33,6 +33,7 @@ CREATE TABLE Materia (
     ID_profesor INT,
     curso VARCHAR(50),
     ID_carrera INT,
+	Nota_aprobacion` INT NOT NULL,
     FOREIGN KEY (ID_profesor) REFERENCES Profesor(ID_profesor),
     FOREIGN KEY (ID_carrera) REFERENCES Carrera(ID_carrera)
 );
