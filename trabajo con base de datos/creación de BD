@@ -45,6 +45,15 @@ CREATE TABLE Profesor (
     email VARCHAR(100) NOT NULL,
 );
 
+-- Tabla Nota
+CREATE TABLE `nota` (
+	`ID_nota` INT AUTO_INCREMENT PRIMARY KEY,
+	`ID_carrera` INT NULL DEFAULT NULL,
+	`ID_materia` INT NULL DEFAULT NULL,
+	`nota` VARCHAR(50) NOT NULL COLLATE '
+	PRIMARY KEY (`ID_nota`) USING BTREE
+);
+
 INSERT INTO usuario (ID_usuario, contraseña, nombre, email) VALUES
 (1, '0123456789', 'Martin', 'martin@gmail.com'),
 (2, 'abcd', 'Tomas', 'tomas@gmail.com'),
